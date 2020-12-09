@@ -6,8 +6,7 @@
 
 e_mail = input()
 
-print(e_mail[-9:-1:])
-if e_mail[-9:-1] == 'gmail.com':
+if e_mail.split('@')[1] == 'gmail.com':
     print(e_mail)
 else:
     print('DOMAIN NAME is not supported')
