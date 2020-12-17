@@ -23,7 +23,9 @@ else:
 # cents
 if cents % 10 == 1 and cents != 11:
     print(f'{cents} копейка', end=' ')
-elif cents % 10 == 2 or cents % 10 == 3 or cents % 10 == 4:
+elif cents % 10 == 2 and cents != 12 or\
+        cents % 10 == 3 and cents != 13 or\
+        cents % 10 == 4 and cents != 14:
     print(f'{cents} копейки', end=' ')
 else:
     print(f'{cents} копеек', end=' ')
