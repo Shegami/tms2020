@@ -36,9 +36,9 @@ def average_matrix(matrix):
 
 def number_matrix(matrix, avg):
     counter = 0
-    for row in matrix:
-        for elem in row[::2]:
-            if elem > avg:
+    for row in range(len(matrix)):
+        for elem in range(len(matrix[row])):
+            if matrix[row][elem] > avg and (row + elem) % 2 == 0:
                 counter += 1
     return counter
 
