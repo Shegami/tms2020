@@ -7,7 +7,7 @@
 """
 
 
-def arithmetic_mean(*args):
+def arithmetic_mean(args):
     summ = 0
     n = 0
     for elem in args:
@@ -16,22 +16,28 @@ def arithmetic_mean(*args):
     return summ / n
 
 
-def geometric_mean(*args):
+def geometric_mean(args):
     mult = 1
     n = 0
     for elem in args:
         mult *= elem
         n += 1
-    return (mult) ** (1 / n)
+    return mult ** (1 / n)
 
 
 def choose_mean(*args, mean_type):
     if mean_type == 'arithmetic':
-        arithmetic_mean(*args)
+        avg = arithmetic_mean(args)
+        return avg
+    else:
+        avg = geometric_mean(args)
+        return avg
 
 
 def main():
-    pass
+    avg = choose_mean(1, 2, 12, 32, 345, 21, 354, 92, 81,
+                      mean_type='geometric')
+    print(avg)
 
 
 if __name__ == '__main__':
