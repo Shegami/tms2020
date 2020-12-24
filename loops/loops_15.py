@@ -11,15 +11,15 @@
 from random import randint
 
 
-def range_try(x, y, z):
-    right_answer = randint(x, y)
-    for tries in range(1, z+1):
+def range_try(minn, maxx, try_numb):
+    right_answer = randint(minn, maxx)
+    for tries in range(1, try_numb+1):
         answer = int(input('Your answer: '))
         if answer == right_answer:
             print('You are the winner')
             break
         else:
-            if tries < z:
+            if tries < try_numb:
                 if answer > right_answer:
                     print('Less')
                 else:
