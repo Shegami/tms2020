@@ -5,26 +5,31 @@
 в противном случае.
 Дано число n (> 1) и набор из 10 целых положительных чисел.
 С помощью функции is_power_n найти количество
-степеней числа N в данном наборе.
+степеней числа n в данном наборе.
 """
 
 
 def is_power_n(k, n):
     counter = 0
-    while True:
-        k = k / n
-        if k > 1:
-            counter += 1
-            continue
-        elif k == 1:
-            return True, counter
-        else:
-            break
+    for i in range(len(k)):
+        while True:
+            if k[i] == 0 or k[i] == 1:
+                counter += 1
+                break
+            n = n / k[i]
+            if n > 1:
+                continue
+            elif n == 1:
+                counter += 1
+                break
+            else:
+                break
+    print(counter)
 
 
 def main():
-    result = is_power_n(16, 2)
-    print(result)
+    numbers = [0, 1, 2, 3]
+    is_power_n(numbers, 4)
 
 
 if __name__ == '__main__':
