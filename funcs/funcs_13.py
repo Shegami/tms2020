@@ -13,12 +13,12 @@ def summa(A):
             positive_sum += i
         else:
             negative_sum += i
-    print(f'Сумма положительных: {positive_sum}\n'
-          f'Сумма отрицательных: {negative_sum}')
+    return positive_sum, negative_sum
 
 
 def main():
-    summa(A=[1, 2, 4, -5, -10, -1])
+    sum_pos, sum_neg = summa(A=[1, 2, 4, -5, -10, -1])
+    print(sum_pos, sum_neg, sep='\n')
 
 
 if __name__ == '__main__':
