@@ -13,8 +13,8 @@ def summa(A):
             positive_sum += i
         else:
             negative_sum += i
-    print(f'Сумма положительных: {positive_sum}'
-          f'\nСумма отрицательных: {negative_sum}')
+    print(f'Сумма положительных: {positive_sum}\n'
+          f'Сумма отрицательных: {negative_sum}')
 
 
 def main():
