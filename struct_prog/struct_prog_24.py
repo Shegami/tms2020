@@ -9,7 +9,8 @@
 def divider(m, n):
     for number in range(m, n+1):
         dividers = []
-        for divider in range(2, number):
+        right_border = number // 2 + 1
+        for divider in range(2, right_border):
             if number % divider == 0:
                 dividers.append(divider)
         print(f'{number}: ', end='')
