@@ -9,7 +9,7 @@ def zero_to_one(file, new_file):
         file_lines = my_file.readlines()
     with open(new_file, 'w') as my_new_file:
         for i in range(len(file_lines)):
-            if '0' or '1' in file_lines[i]:
+            if '0' or '1' in file_lines[i] or '1' in file_lines[i]:
                 line_to_list = list(file_lines[i])
                 for elem in range(len(line_to_list)):
                     if line_to_list[elem] == '0':
