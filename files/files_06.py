@@ -7,9 +7,8 @@
 
 
 def numb_of_different_line(file_1, file_2):
-    with open(file_1, 'r') as first_file:
+    with open(file_1, 'r') as first_file, open(file_2, 'r') as second_file:
         lines_fst_file = first_file.readlines()
-    with open(file_2, 'r') as second_file:
         lines_sec_file = second_file.readlines()
     for i in range(len(lines_fst_file)):
         if lines_fst_file[i] != lines_sec_file[i]:

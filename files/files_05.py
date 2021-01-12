@@ -9,11 +9,9 @@ def odd_even_files(file, file_odd, file_even):
     with open(file, 'r') as main_file:
         file_lines = main_file.readlines()
     with open(file_odd, 'w') as odd_file:
-        for i in file_lines[::2]:
-            odd_file.write(i)
+        odd_file.writelines(file_lines[::2])
     with open(file_even, 'w') as even_file:
-        for i in file_lines[1::2]:
-            even_file.write(i)
+        even_file.writelines(file_lines[1::2])
 
 
 def main():
