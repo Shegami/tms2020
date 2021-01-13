@@ -3,44 +3,73 @@ import csv
 
 def csv_read(filename):
     rows = []
-    with open(filename, 'r') as my_file:
-        csvreader = csv.reader(my_file)
-        for row in csvreader:
+    with open(filename) as csvfile:
+        csv_data = csv.reader(csvfile)
+        for row in csv_data:
             rows.append(row)
-        fields = rows[0]
-        data = rows[1:]
+    fields = rows[0]
+    data = rows[1:]
     return fields, data
 
 
 def csv_write(filename, fields, data):
-    with open(filename, 'w') as my_file:
-        csvwriter = csv.writer(my_file)
+    with open(filename, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
         csvwriter.writerow(fields)
         csvwriter.writerows(data)
 
 
-def csv_insert(filename, new_row, place=-1):
+def csv_add_row(filename, row, position=-1):
     fields, data = csv_read(filename)
-    if place == -1:
-        data.append(new_row)
+    if position == -1:
+        data.append(row)
     else:
-        data.insert(place-1, new_row)
+        data.insert(position-1, row)
     csv_write(filename, fields, data)
 
 
-def csv_pop(filename, place=-1):
+def csv_pop_row(filename, position=-1):
     fields, data = csv_read(filename)
-    if place == -1:
+    if position == -1:
         data.pop()
     else:
-        data.pop(place-1)
+        data.pop(position-1)
     csv_write(filename, fields, data)
 
 
-def main():
-    csv_insert('12312.txt', ['Andrei', 'GAGA'], 1)
-    csv_pop('12312.txt', 1)
+def csv_goods_sum(filename):
+    fields, data = csv_read(filename)
+    goods_sum = 0
+    for i in range(len(data)):
+        goods_sum += int(data[i][2])
+    return goods_sum
 
 
-if __name__ == '__main__':
-    main()
+def csv_goods_expensive(filename):
+    fields, data = csv_read(filename)
+    most_expensive = float(data[0][1])
+    for i in range(1, len(data)):
+        if most_expensive < float(data[i][1]):
+            most_expensive = float(data[i][1])
+    return most_expensive
+
+
+def csv_goods_cheapest(filename):
+    fields, data = csv_read(filename)
+    cheapest = float(data[0][1])
+    for i in range(1, len(data)):
+        if cheapest > float(data[i][1]):
+            cheapest = float(data[i][1])
+    return cheapest
+
+
+def csv_goods_reduce(filename, quantity=1):
+    fields, data = csv_read(filename)
+    for row in range(len(data)):
+        print(f'{row+1} {data[row][0]}')
+    choice = int(input('Выберите номер товара: ')) - 1
+    if quantity > int(data[choice][2]):
+        print('Ошибка. Указанное кол-во больше, чем кол-во товара.')
+    else:
+        data[choice][2] = str(int(data[choice][2]) - quantity)
+    csv_write(filename, fields, data)
