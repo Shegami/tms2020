@@ -19,18 +19,18 @@ def csv_write(filename, fields, data):
         csvwriter.writerows(data)
 
 
-def csv_add_row(filename, row, position=-1):
+def csv_add_row(filename, row, position=None):
     fields, data = csv_read(filename)
-    if position == -1:
+    if position is None:
         data.append(row)
     else:
         data.insert(position-1, row)
     csv_write(filename, fields, data)
 
 
-def csv_pop_row(filename, position=-1):
+def csv_pop_row(filename, position=None):
     fields, data = csv_read(filename)
-    if position == -1:
+    if position is None:
         data.pop()
     else:
         data.pop(position-1)

@@ -6,7 +6,8 @@
 Удалить третью строку.
 """
 
-from files.csv_utils import csv_read, csv_write, csv_add_row, csv_pop_row
+from files.csv_utils import csv_read, csv_write,\
+                            csv_add_row, csv_pop_row
 
 
 def main():
