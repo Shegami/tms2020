@@ -1,15 +1,17 @@
 """
-
+Дан список чисел.
+Найти произведение всех чисел, которые кратны 3
 """
 
+from functools import reduce
 
-def name(var):
-    pass
-    
-   
+
 def main():
-    pass
-    
+    print(reduce(
+        lambda a, x: a * x,
+        filter(lambda x: x % 3 == 0, [2, 3, 5, 6])
+    ))
+
 
 if __name__ == '__main__':
     main()
