@@ -6,7 +6,7 @@
 Возрастные группы: 1-12, 13-18, 19-25, 26-40, 40+
 """
 
-from files.csv_utils import csv_write, csv_age_sort
+from files.csv_utils import csv_write
 
 
 def main():
@@ -44,17 +44,29 @@ def main():
         ],
     ]
     csv_write('files_10_people.csv', fields, data_input)
-    fields_sorted = [
-        '1-12',
-        '13-18',
-        '19-25',
-        '26-40',
-        '40+'
-    ]
+    fields_sorted = {
+        '1-12': 0,
+        '13-18': 0,
+        '19-25': 0,
+        '26-40': 0,
+        '40+': 0
+    }
 
-    data_output = csv_age_sort(data_input, [[0, 0, 0, 0, 0]])
-    csv_write('files_10_people_sort.csv', fields_sorted, data_output)
+    for i in range(len(data_input)):
+        if data_input[i][2] < 13:
+            fields_sorted['1-12'] += 1
+        elif 12 < data_input[i][2] < 19:
+            fields_sorted['13-18'] += 1
+        elif 18 < data_input[i][2] < 26:
+            fields_sorted['19-25'] += 1
+        elif 25 < data_input[i][2] < 41:
+            fields_sorted['26-40'] += 1
+        else:
+            fields_sorted['40+'] += 1
+
+    csv_write('files_10_people_sort.csv', fields_sorted.keys(), [fields_sorted.values()])
 
 
 if __name__ == '__main__':
     main()
+    
