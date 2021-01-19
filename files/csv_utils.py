@@ -1,11 +1,12 @@
 import csv
+from functools import reduce
 
 
 def csv_read(filename):
     rows = []
     with open(filename) as csvfile:
-        csv_data = csv.reader(csvfile)
-        for row in csv_data:
+        csvreader = csv.reader(csvfile)
+        for row in csvreader:
             rows.append(row)
     fields = rows[0]
     data = rows[1:]
