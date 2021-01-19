@@ -8,7 +8,7 @@
 
 def main():
     strings = ['Marry', 'Christmas', 'happy', 'New', 'Year']
-    strings_i = [f'{i+1} - {string}' for i, string in enumerate(strings)]
+    strings_i = [f'{i} - {string}' for i, string in enumerate(strings, 1)]
     print(strings_i)
 
 
