@@ -75,16 +75,19 @@ def csv_goods_reduce(filename, quantity=1):
     csv_write(filename, fields, data)
 
 
-def csv_age_sort(data_input, data_output):
-    for i in range(len(data_input)):
-        if data_input[i][2] < 13:
-            data_output[0][0] += 1
-        elif 12 < data_input[i][2] < 19:
-            data_output[0][1] += 1
-        elif 18 < data_input[i][2] < 26:
-            data_output[0][2] += 1
-        elif 25 < data_input[i][2] < 41:
-            data_output[0][3] += 1
-        else:
-            data_output[0][4] += 1
-    return data_output
+def csv_degree_avg(data):
+    degree = reduce(
+        lambda a, degree: a + degree,
+        [float(data[i][2]) for i in range(len(data))],
+        0
+    )
+    return degree
+
+
+def csv_wind_spd(data):
+    wind_spd = reduce(
+        lambda a, degree: a + degree,
+        [float(data[i][3]) for i in range(len(data))],
+        0
+    )
+    return wind_spd
