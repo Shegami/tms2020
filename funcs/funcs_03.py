@@ -8,16 +8,17 @@
 
 def fact(n):
     if n == 0:
-        print(1)
+        return 1
     else:
         numb = 1
         for i in range(1, n+1):
             numb *= i
-        print(numb)
+        return numb
 
 
 def main():
-    fact(4)
+    result = fact(4)
+    print(result)
 
 
 if __name__ == '__main__':
