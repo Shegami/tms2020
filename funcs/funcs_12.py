@@ -9,7 +9,7 @@
 """
 
 
-def is_power_n(k, n):
+def power_n(k, n):
     counter = 0
     for i in range(len(k)):
         while True:
@@ -24,12 +24,12 @@ def is_power_n(k, n):
                 break
             else:
                 break
-    print(counter)
+    return counter
 
 
 def main():
     numbers = [0, 1, 2, 3]
-    is_power_n(numbers, 4)
+    print(power_n(numbers, 4))
 
 
 if __name__ == '__main__':

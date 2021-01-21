@@ -6,13 +6,16 @@
 
 
 def len_even(**kwargs):
+    result = {}
     for key, value in kwargs.items():
         if len(key) % 2 == 0:
-            print(key, value)
+            result.setdefault(key, value)
+    return result
 
 
 def main():
-    len_even(a=23, bsnms=17, c=9, ddsa=20)
+    result = len_even(a=23, bsms=17, c=9, ddsa=20)
+    print(result)
 
 
 if __name__ == '__main__':

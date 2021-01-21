@@ -7,13 +7,13 @@
 
 
 def hello_name(name_var):
-    print(f'Hello, {name_var}')
+    return f'Hello, {name_var}'
 
 
 def main():
     names = ['Kostia', 'Igor', 'Zhenya', 'Katya', 'Elena']
     for name in names:
-        hello_name(name)
+        print(hello_name(name))
 
 
 if __name__ == '__main__':

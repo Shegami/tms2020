@@ -10,7 +10,7 @@ def sum_max_args(*args):
     for elem in args:
         summ += elem
         if elem > maxx:
-            maxx = summ
+            maxx = elem
     return summ, maxx
 
 
