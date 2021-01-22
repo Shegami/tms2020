@@ -8,6 +8,7 @@ n!! = 2·4·6·...·n, если n — четное (n > 0 —
 
 
 def func2(n):
+    result = {}
     for numb in n:
         factorial = 1
         if numb == 0 or numb == 1 or numb == 2:
@@ -18,12 +19,13 @@ def func2(n):
         else:
             for i in range(1, numb+1, 2):
                 factorial *= i
-        print(f'Факториал {numb} = {factorial}')
+        result.setdefault(numb, factorial)
+    return result
 
 
 def main():
-    n = [1, 6, 13, 24, 7]
-    func2(n)
+    n = [1, 8]
+    print(func2(n))
 
 
 if __name__ == '__main__':

@@ -8,34 +8,68 @@
 """
 
 
-def calculator_from_in(calculator, i):
-    while True:
-        if i == 0:
-            break
-        else:
-            numb = float(input('Значение: '))
-            result = numb * calculator[i]
-            print(result)
-            i = (input('Что перевести? (от 1 до 12)?: '))
+def inch_to_cm(numb):
+    result = numb * 2.54
+    return result
+
+
+def cm_to_inch(numb):
+    result = numb * 0.393701
+    return result
+
+
+def miles_to_km(numb):
+    result = numb * 1.60934
+    return result
+
+
+def km_to_miles(numb):
+    result = numb * 0.621371
+    return result
+
+
+def pounds_to_kg(numb):
+    result = numb * 0.453592
+    return result
+
+
+def kg_to_pounds(numb):
+    result = numb * 2.20462
+    return result
+
+
+def ounce_to_gr(numb):
+    result = numb * 28.3495
+    return result
+
+
+def gr_to_ounce(numb):
+    result = numb * 0.035274
+    return result
+
+
+def gallon_to_litre(numb):
+    result = numb * 3.78541
+    return result
+
+
+def litre_to_gallon(numb):
+    result = numb * 0.264172
+    return result
+
+
+def pint_to_litre(numb):
+    result = numb * 0.473176
+    return result
+
+
+def litre_to_pint(numb):
+    result = numb * 2.11338
+    return result
 
 
 def main():
-    options = {1: 'Дюймы в сантиметры', 2: 'Сантиметры в дюймы',
-               3: 'Мили в километры', 4: 'Километры в мили',
-               5: 'Фунты в килограммы', 6: 'Килограммы в фунты',
-               7: 'Унции в граммы', 8: 'Граммы в унции',
-               9: 'Галлон в литры', 10: 'Литры в галлоны',
-               11: 'Пинты в литры', 12: 'Литры в пинты'}
-    calculator = {1: 2.54, 2: 0.393701,
-                  3: 1.60934, 4: 0.621371,
-                  5: 0.453592, 6: 2.20462,
-                  7: 28.3495, 8: 0.035274,
-                  9: 3.78541, 10: 0.264172,
-                  11: 0.473176, 12: 2.11338}
-    for key, value in options.items():
-        print(f'{key}: {value}')
-    calculator_from_in(calculator,
-                       int(input('Что перевести? (от  до 12)?: ')))
+    print((litre_to_gallon(120)))
 
 
 if __name__ == '__main__':

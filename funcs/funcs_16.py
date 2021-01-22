@@ -8,16 +8,16 @@
 
 
 def palindrom(listt):
+    result = {}
     for i in range(len(listt)):
         if listt[i].lower() == listt[i].lower()[::-1]:
-            print(f'Слово "{listt[i]}" является палиндромом')
-        else:
-            print(f'Слово "{listt[i]}" не является палиндромом')
+            result.setdefault(listt[i], "палиндром")
+    return result
 
 
 def main():
     words = ['Лиса', 'Шалаш', 'Дом']
-    palindrom(words)
+    print(palindrom(words))
 
 
 if __name__ == '__main__':
