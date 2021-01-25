@@ -22,16 +22,16 @@ class Dog:
         self.name = name
         self.age = age
 
+    # oop_05
+    def change_name(self, name):
+        self.name = name
+
 
 def main():
     dog = Dog(1.5, 13, 'Stefan', 7)
-    dog.jump()
-    dog.run()
-    dog.bark()
-    print(dog.height)
-    print(dog.weight)
     print(dog.name)
-    print(dog.age)
+    dog.change_name('Mustang')
+    print(dog.name)
 
 
 if __name__ == '__main__':
