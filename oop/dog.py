@@ -23,6 +23,7 @@ class Dog:
         self.name = name
         self.age = age
         self.__master = master
+        self.__address = 'Minsk'
 
     # oop_05
     def change_name(self, name):
@@ -32,6 +33,13 @@ class Dog:
     def get_master(self):
         return self.__master
 
+    # oop_07
+    def get_address(self):
+        return self.__address
+
+    def set_address(self, address):
+        self.__address = address
+
 
 def main():
     dog = Dog(1.5, 13, 'Stefan', 7, 'KOSTIA')
@@ -39,6 +47,9 @@ def main():
     dog.change_name('Mustang')
     print(dog.name)
     print(dog.get_master())
+    print(dog.get_address())
+    dog.set_address('Piter')
+    print(dog.get_address())
 
 
 if __name__ == '__main__':
