@@ -1,6 +1,11 @@
 """
-Переопределить методы change_weight, change_height в классе Parrot.
-В случае не передачи параметра - вес изменяется на 0.05
+Добавить метод jump, принимающий высоту прыжка.
+Метод выводит сообщение “Jump X meters”
+Переопределить метод jump в дочерних классах.
+Если передать методу jump класса dog значение больше 0.5,
+выводить сообщение “Dogs cannot jump so high,
+аналогично для кошек(2), для попугаев(0.05)
+
 """
 
 
@@ -17,8 +22,8 @@ class Pet:
     def run(self):
         return 'Run, bitch!'
 
-    def jump(self):
-        return 'Jump, bitch!'
+    def jump(self, meters):
+        print(f'Jump, {meters} meters bitch!')
 
     def bithday(self):
         self.age += 1
@@ -40,10 +45,22 @@ class Dog(Pet):
     def bark(self):
         return 'Woof!'
 
+    def jump(self, meters):
+        if meters > 0.5:
+            print('Dogs cannot jump so high, retard')
+        else:
+            super().jump(meters)
+
 
 class Cat(Pet):
     def meow(self):
         return 'Meow!'
+
+    def jump(self, meters):
+        if meters > 2:
+            print('Cats cannot jump so high, retard')
+        else:
+            super().jump(meters)
 
 
 class Parrot(Pet):
@@ -59,12 +76,16 @@ class Parrot(Pet):
         else:
             print('fly, bitch!')
 
+    def jump(self, meters):
+        if meters > 0.05:
+            print('Parrots cannot jump so high, retard')
+        else:
+            super().jump(meters)
+
 
 def main():
     parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7)
-    print(parrot.weight)
-    parrot.change_weight()
-    print(parrot.weight)
+    parrot.jump(0.03)
 
 
 if __name__ == '__main__':
