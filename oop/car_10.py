@@ -29,7 +29,7 @@ class Car:
     def stop_speed(self):
         self.__speed = 0
 
-    def return_speed(self):
+    def get_speed(self):
         return self.__speed
 
     def reverse_speed(self, speed):
