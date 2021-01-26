@@ -44,7 +44,11 @@ class Parrot(Pet):
 
 
 def main():
-    pass
+    dog = Dog('Sasha', 10, 'Alex')
+    print(dog.bark())
+    print(dog.jump())
+    print(dog.run())
+    dog.bithday()
 
 
 if __name__ == '__main__':
