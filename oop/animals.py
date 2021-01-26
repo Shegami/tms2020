@@ -47,17 +47,11 @@ class Cat(Pet):
 
 
 class Parrot(Pet):
-    def change_weight(self, weight=None):
-        if weight:
-            self.weight += weight
-        else:
-            self.weight += 0.05
+    def change_weight(self, weight=0.05):
+        self.weight += weight
 
-    def change_height(self, height=None):
-        if height:
-            self.height += height
-        else:
-            self.height += 0.05
+    def change_height(self, height=0.05):
+        self.height += height
 
     def fly(self):
         if self.weight > 0.1:
