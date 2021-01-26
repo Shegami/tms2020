@@ -1,11 +1,5 @@
 """
-Добавить метод jump, принимающий высоту прыжка.
-Метод выводит сообщение “Jump X meters”
-Переопределить метод jump в дочерних классах.
-Если передать методу jump класса dog значение больше 0.5,
-выводить сообщение “Dogs cannot jump so high,
-аналогично для кошек(2), для попугаев(0.05)
-
+Добавить в класс Parrot  новый атрибут - species
 """
 
 
@@ -82,10 +76,20 @@ class Parrot(Pet):
         else:
             super().jump(meters)
 
+    def __init__(self,
+                 name, age,
+                 master, weight,
+                 height, species):
+        super().__init__(name, age,
+                         master, weight,
+                         height)
+        self.species = species
+
 
 def main():
-    parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7)
+    parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7, 'karlik')
     parrot.jump(0.03)
+    parrot.jump(1)
 
 
 if __name__ == '__main__':
