@@ -1,12 +1,6 @@
 """
-Добавить два новых атрибута в родительский класс:
-weight и height.
-Добавить методы change_weight, change_height
-принимающий один параметр и прибавляющий его к
-соответствующему аргументу.
-В случае если параметр не был передан, увеличивать на 0.2.
-Изменить метод fly класса Parrot.
-Если вес больше 0.1 выводить сообщение This parrot cannot fly.
+Переопределить методы change_weight, change_height в классе Parrot.
+В случае не передачи параметра - вес изменяется на 0.05
 """
 
 
@@ -43,18 +37,27 @@ class Pet:
 
 
 class Dog(Pet):
-
     def bark(self):
         return 'Woof!'
 
 
 class Cat(Pet):
-
     def meow(self):
         return 'Meow!'
 
 
 class Parrot(Pet):
+    def change_weight(self, weight=None):
+        if weight:
+            self.weight += weight
+        else:
+            self.weight += 0.05
+
+    def change_height(self, height=None):
+        if height:
+            self.height += height
+        else:
+            self.height += 0.05
 
     def fly(self):
         if self.weight > 0.1:
@@ -64,13 +67,10 @@ class Parrot(Pet):
 
 
 def main():
-    dog = Dog('Sasha', 10, 'Alex', 1.5, 0.7)
-    print(dog.weight)
-    print(dog.height)
-    dog.change_height(7)
-    dog.change_weight(1)
-    print(dog.weight)
-    print(dog.height)
+    parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7)
+    print(parrot.weight)
+    parrot.change_weight()
+    print(parrot.weight)
 
 
 if __name__ == '__main__':
