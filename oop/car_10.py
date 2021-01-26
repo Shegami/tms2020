@@ -73,9 +73,11 @@ def main():
     print(car_1.brand)
     print(car_1.model)
     print(car_1.year)
+
     print(car_1.speed)
     car_1.speed = 17
     print(car_1.speed)
+
     car_1.increase_speed()
     print(car_1.speed)
 
