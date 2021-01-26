@@ -1,5 +1,9 @@
 """
-Добавить в класс Parrot  новый атрибут - species
+Добавить в класс Pet пустой метод voice.
+Заменить имена методов bark, meow на voice.
+Добавить voice для класса Parrot.
+Создать функцию, принимающая список животных
+и вызывающая у каждого животного метод voice.
 """
 
 
@@ -34,10 +38,13 @@ class Pet:
         else:
             self.height += 0.2
 
+    def voice(self):
+        pass
+
 
 class Dog(Pet):
-    def bark(self):
-        return 'Woof!'
+    def voice(self):
+        print('Woof!')
 
     def jump(self, meters):
         if meters > 0.5:
@@ -47,8 +54,8 @@ class Dog(Pet):
 
 
 class Cat(Pet):
-    def meow(self):
-        return 'Meow!'
+    def voice(self):
+        print('Meow!')
 
     def jump(self, meters):
         if meters > 2:
@@ -85,11 +92,19 @@ class Parrot(Pet):
                          height)
         self.species = species
 
+    def voice(self):
+        print('AAAAAAAAAAAA!')
+
 
 def main():
     parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7, 'karlik')
-    parrot.jump(0.03)
-    parrot.jump(1)
+    cat = Cat('Kuzia', 2, 'Vitya', 2, 0.8)
+    dog = Dog('Petr', 3, 'Petr 2', 3, 1.4)
+
+    animals = [parrot, cat, dog]
+
+    for animal in animals:
+        animal.voice()
 
 
 if __name__ == '__main__':
