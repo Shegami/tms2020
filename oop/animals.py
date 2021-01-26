@@ -96,6 +96,11 @@ class Parrot(Pet):
         print('AAAAAAAAAAAA!')
 
 
+def print_voice(listt):
+    for animal in listt:
+        animal.voice()
+
+
 def main():
     parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7, 'karlik')
     cat = Cat('Kuzia', 2, 'Vitya', 2, 0.8)
@@ -103,8 +108,7 @@ def main():
 
     animals = [parrot, cat, dog]
 
-    for animal in animals:
-        animal.voice()
+    print_voice(animals)
 
 
 if __name__ == '__main__':
