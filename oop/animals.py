@@ -1,12 +1,12 @@
 """
-Создать статичный метод get_random_name для класса Pet.
-Метод возвращает случайную строку вида A-42.
+Сделать класс Pet абстрактным
 """
 
 from random import randint, choice
+from abc import ABC, abstractmethod
 
 
-class Pet:
+class Pet(ABC):
     __counter = 0
 
     def __init__(self,
@@ -23,7 +23,8 @@ class Pet:
     def get_counter(cls):
         return cls.__counter
 
-    def run(self):
+    @staticmethod
+    def run():
         return 'Run, bitch!'
 
     def jump(self, meters):
@@ -44,6 +45,7 @@ class Pet:
         else:
             self.height += 0.2
 
+    @abstractmethod
     def voice(self):
         pass
 
@@ -138,10 +140,11 @@ def print_voice(listt):
 
 
 def main():
-    Mule('Oleg', 3, 'Vasya', 12, 1.5)
+    ivan = Mule('Oleg', 3, 'Vasya', 12, 1.5)
     Mule('Dima', 3, 'Olega', 12, 1.3)
     print(Pet.get_counter())
     print(Pet.get_random_name())
+    Pet('Dima', 3, 'Olega', 12, 1.3)
 
 
 if __name__ == '__main__':
