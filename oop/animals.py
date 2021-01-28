@@ -41,6 +41,16 @@ class Pet:
     def voice(self):
         pass
 
+    def __eq__(self, other):
+        return all([
+            self.weight == other.weight,
+            self.height == other.height,
+            self.age == other.age
+        ])
+
+    def __ne__(self, other):
+        return not self == other
+
 
 class Dog(Pet):
     def voice(self):
@@ -118,7 +128,8 @@ def print_voice(listt):
 
 def main():
     mule = Mule('Oleg', 3, 'Vasya', 12, 1.5)
-    mule.voice()
+    horse = Mule('Dima', 3, 'Olega', 12, 1.3)
+    print(mule != horse)
 
 
 if __name__ == '__main__':
