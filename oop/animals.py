@@ -96,19 +96,29 @@ class Parrot(Pet):
         print('AAAAAAAAAAAA!')
 
 
+class Horse(Pet):
+    def voice(self):
+        print('Igo-go!')
+
+
+class Donkey(Pet):
+    def voice(self):
+        print('IIIIIAAAAAAAAA!!!!!!!!!!')
+
+
+class Mule(Donkey, Horse):
+    def voice(self):
+        super(Mule, self).voice()
+
+
 def print_voice(listt):
     for animal in listt:
         animal.voice()
 
 
 def main():
-    parrot = Parrot('Kyky', 1, 'Pirat', 1, 0.7, 'karlik')
-    cat = Cat('Kuzia', 2, 'Vitya', 2, 0.8)
-    dog = Dog('Petr', 3, 'Petr 2', 3, 1.4)
-
-    animals = [parrot, cat, dog]
-
-    print_voice(animals)
+    mule = Mule('Oleg', 3, 'Vasya', 12, 1.5)
+    mule.voice()
 
 
 if __name__ == '__main__':
