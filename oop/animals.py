@@ -8,6 +8,8 @@
 
 
 class Pet:
+    __counter = 0
+
     def __init__(self,
                  name, age, master,
                  weight, height):
@@ -16,6 +18,7 @@ class Pet:
         self.master = master
         self.weight = weight
         self.height = height
+        Pet.__counter += 1
 
     def run(self):
         return 'Run, bitch!'
@@ -129,7 +132,6 @@ def print_voice(listt):
 def main():
     mule = Mule('Oleg', 3, 'Vasya', 12, 1.5)
     horse = Mule('Dima', 3, 'Olega', 12, 1.3)
-    print(mule != horse)
 
 
 if __name__ == '__main__':
