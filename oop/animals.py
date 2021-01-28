@@ -1,9 +1,6 @@
 """
-Добавить в класс Pet пустой метод voice.
-Заменить имена методов bark, meow на voice.
-Добавить voice для класса Parrot.
-Создать функцию, принимающая список животных
-и вызывающая у каждого животного метод voice.
+Создать метод класса get_counter.
+Создать три объекта класса. Вызвать через класс метод get_counter.
 """
 
 
@@ -19,6 +16,10 @@ class Pet:
         self.weight = weight
         self.height = height
         Pet.__counter += 1
+
+    @classmethod
+    def get_counter(cls):
+        return cls.__counter
 
     def run(self):
         return 'Run, bitch!'
@@ -130,8 +131,9 @@ def print_voice(listt):
 
 
 def main():
-    mule = Mule('Oleg', 3, 'Vasya', 12, 1.5)
-    horse = Mule('Dima', 3, 'Olega', 12, 1.3)
+    Mule('Oleg', 3, 'Vasya', 12, 1.5)
+    Mule('Dima', 3, 'Olega', 12, 1.3)
+    print(Pet.get_counter())
 
 
 if __name__ == '__main__':
