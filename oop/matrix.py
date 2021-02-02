@@ -26,7 +26,7 @@ class Matrix:
         self.data = [[randint(a, b) for n in range(n)] for m in range(m)]
 
     def __str__(self):
-        return '\n'.join(str(i) for i in self.data)
+        return '\n'.join(map(str, self.data))
 
 
 def max_elem(matrix):
@@ -56,7 +56,8 @@ def sum_elem(matrix):
 
 
 def main():
-    pass
+    matrix = Matrix(2, 2, 1, 9)
+    print(matrix)
 
 
 if __name__ == '__main__':

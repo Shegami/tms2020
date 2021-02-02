@@ -29,6 +29,10 @@ class MyTime:
             self.minutes = 0
             self.seconds = 0
 
+    def sec(self):
+        sec = self.seconds + self.minutes * 60 + self.hours * 3600
+        return sec
+
     def __eq__(self, other):
         return all([
             self.hours == other.hours,
@@ -55,13 +59,13 @@ class MyTime:
             return MyTime(hours, mints, sec)
 
     def __str__(self):
-        return f'{self.hours + self.minutes // 60}-'\
-               f'{(self.minutes % 60) +(self.seconds // 60)}-'\
-               f'{self.seconds % 60}'
+        return f'{(self.sec() - (self.sec() % 60)) % 60}-'\
+               f'{(self.sec() - (self.sec() % 60)) % 60}-'\
+               f'{self.sec() % 60}'
 
 
 def main():
-    time = MyTime(1, 13, 64)
+    time = MyTime(1, 13, 72634)
     time_2 = MyTime('1-12-64')
     time_3 = MyTime(time)
     time_4 = MyTime()
