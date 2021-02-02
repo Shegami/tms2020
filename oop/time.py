@@ -11,7 +11,7 @@
 
 class MyTime:
     def __init__(self, *args):
-        if args != () and type(args[0]) == int:
+        if args != () and type(args[0]) == int and len(args) == 3:
             self.hours = args[0]
             self.minutes = args[1]
             self.seconds = args[2]
