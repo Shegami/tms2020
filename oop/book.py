@@ -10,32 +10,32 @@
 
 class CheckDataInt(Exception):
     def __init__(self, message='Type of Data must be int'):
-        print(message)
+        super().__init__(message)
 
 
 class CheckDataFloatInt(Exception):
     def __init__(self, message='Type of Data must be int or float'):
-        print(message)
+        super().__init__(message)
 
 
 class CheckDataStr(Exception):
     def __init__(self, message='Type of Data must be str'):
-        print(message)
+        super().__init__(message)
 
 
 class CheckNumbPages(Exception):
     def __init__(self, message='Pages must be > 0'):
-        print(message)
+        super().__init__(message)
 
 
 class CheckPrice(Exception):
     def __init__(self, message='Price must be >= 0'):
-        print(message)
+        super().__init__(message)
 
 
 class CheckYear(Exception):
     def __init__(self, message='No books were written that time'):
-        print(message)
+        super().__init__(message)
 
 
 class Book:
@@ -65,8 +65,8 @@ class Book:
 
 
 def main():
-    HarryPotter = Book(13, 1000, 'Andrew', 0)
-    print(HarryPotter)
+    harrypotter = Book('dfd', 1000, 'Andrew', 0)
+    print(harrypotter)
 
 
 if __name__ == '__main__':
