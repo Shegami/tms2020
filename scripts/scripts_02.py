@@ -28,7 +28,8 @@ print('Last name:', args.last_name)
 print('Age:', args.age)
 
 
-with open('scripts/scripts_02.txt', 'w') as my_file:
+with open('/home/user/PycharmProjects/tms2020/'
+          'scripts/scripts_02.txt', 'a') as my_file:
     my_file.write(f"First name: {args.first_name}\n"
                   f"Last name: {args.last_name}\n"
                   f"Age: {args.age}\n")
