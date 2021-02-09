@@ -6,7 +6,7 @@ create table Book (
 	price float
 );
 
-ALTER TABLE Book ADD COLUMN realease_year int
+alter table Book add column realease_year int;
 
 insert into Book (id, title, pages, author, price, realease_year) values 
 (1, 'Matrix', 132, 'Richard', 752.5, 2009),
@@ -14,3 +14,5 @@ insert into Book (id, title, pages, author, price, realease_year) values
 (3, 'Matrix Three', 134, 'Richard', 932, 2011),
 (4, 'Matrix Four', 135, 'Richard', 978.3, 2012),
 (5, 'Matrix Five', 136, 'Richard', 1000, 2013);
+
+select realease_year, title, price from Book
