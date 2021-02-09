@@ -1,0 +1,5 @@
+User name: Kostia
+User last name: Toukach
+Time to focus: 1
+Time to break: 1
+Cycles: 2
