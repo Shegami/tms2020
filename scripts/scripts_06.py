@@ -27,25 +27,31 @@ parser.add_argument(
 )
 parser.add_argument(
     '-hr',
-    '--hour'
+    '--hour',
+    required=True,
+    type=int
 )
 parser.add_argument(
     '-mn',
-    '--minutes'
+    '--minutes',
+    required=True,
+    type=int
 )
 parser.add_argument(
     '-sc',
-    '--seconds'
+    '--seconds',
+    required=True,
+    type=int
 )
 
-n = 3
+args = parser.parse_args()
+
+n = args.seconds + (args.minutes * 60) + (args.hour * 3600)
 for i in range(n):
     print(datetime.timedelta(seconds=n))
     n -= 1
     time.sleep(1)
 print('Allahu Acbar!')
-
-args = parser.parse_args()
 
 with open(os.path.join(
         dir_path,
