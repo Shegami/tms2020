@@ -16,10 +16,11 @@ insert into Book (id, title, pages, author, price, realease_year) values
 (5, 'Matrix Five', 136, 'Richard', 1000, 2013);
 
 select title, realease_year, price from Book
-where realease_year = 2010
+where realease_year = 2010;
 
 update Book set price = 10
-where realease_year = 2010
+where realease_year = 2010;;
 
 delete from Book 
-where price > 10
+where price > 10;
+
