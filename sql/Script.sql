@@ -5,3 +5,5 @@ CREATE TABLE Book (
 	author varchar,
 	price float
 );
+
+ALTER TABLE Book ADD COLUMN realease_year int
