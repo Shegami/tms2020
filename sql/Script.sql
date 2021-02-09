@@ -15,4 +15,5 @@ insert into Book (id, title, pages, author, price, realease_year) values
 (4, 'Matrix Four', 135, 'Richard', 978.3, 2012),
 (5, 'Matrix Five', 136, 'Richard', 1000, 2013);
 
-select realease_year, title, price from Book
+select title, realease_year, price from Book
+where realease_year = 2010
