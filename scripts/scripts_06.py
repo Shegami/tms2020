@@ -62,11 +62,3 @@ with open(os.path.join(
         f'User last name: {args.last_name}',
         f'Time access: {args.hour}.{args.minutes}.{args.seconds}'
     ]))
-
-
-def main():
-    pass
-
-
-if __name__ == '__main__':
-    main()
