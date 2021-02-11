@@ -13,7 +13,7 @@ from sqlalchemy import create_engine
 engine = create_engine('sqlite:///sa_test.db')
 engine.execute("""
     create table Book (
-    id int prinary key,
+    id integer primary key autoincrement,
     title varchar,
     pages int,
     author varchar,
