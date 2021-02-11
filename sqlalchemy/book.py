@@ -16,12 +16,12 @@ metadata = MetaData()
 
 book_table = Table(
     'Book', metadata,
-   Column('id', Integer, primary_key=True),
-   Column('title', String),
-   Column('pages', Integer),
-   Column('author', String),
-   Column('price', Float),
-   Column('release_year', Integer),
-   )
+    Column('id', Integer, primary_key=True),
+    Column('title', String),
+    Column('pages', Integer),
+    Column('author', String),
+    Column('price', Float),
+    Column('release_year', Integer),
+)
 
 metadata.create_all(engine)
