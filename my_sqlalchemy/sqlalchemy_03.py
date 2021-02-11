@@ -12,7 +12,7 @@ engine = create_engine('sqlite:///sa_test.db')
 my_year = int(input('Input year: '))
 
 result = engine.execute(f"""
-    select * from Book
+    select * from book
     where release_year < {my_year};
 """)
 

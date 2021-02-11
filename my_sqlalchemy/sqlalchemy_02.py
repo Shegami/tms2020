@@ -1,7 +1,7 @@
 """
 Создать файл sqlalchemy_02.py.
 Создать соединение к базе sa_test.db.
-Создать 5 книг с помощью sqlalchemy.
+Создать 5 книг с помощью my_sqlalchemy.
 """
 
 
@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 
 engine = create_engine('sqlite:///sa_test.db')
 engine.execute("""
-    insert into Book (
+    insert into book (
     title,
     pages,
     author,
