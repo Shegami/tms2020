@@ -21,7 +21,7 @@ conn.execute(f"""
 print(title, pages, author, price, release_year)
 print()
 
-if input('Хотите сохранить эту книгу? ') == 'Да':
+if input('Желаете сохранить эту книгу? ') == 'Да':
     trans.commit()
 else:
     trans.rollback()
