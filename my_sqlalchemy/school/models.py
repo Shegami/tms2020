@@ -1,16 +1,18 @@
 """
-Создать пакет school.
-Создать файл models.py.
-Создать базу school в postgre.
-Создать таблицу Учебной группы(Group) с помощью
-sqlalchemy в декларативном стиле.
-Группа характеризуется названием(name).
+Создать таблицу Студент(Student) с помощью
+sqlalchemy в файле models.py.
+Студент характеризуется именем(firstname)
+и фамилией(lastname) и группой к которой он приурочен.
+Создать файл sqlalchemy_11.py.
+Создать две группы.
+Добавить в каждую по три студента.
 """
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,\
+    Column, String, Integer, ForeignKey
 from sqlalchemy_utils import create_database, \
     database_exists
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer
+from sqlalchemy.orm import relationship, sessionmaker
 
 DB_USER = 'postgres'
 DB_PASS = 'postgres'
@@ -32,9 +34,26 @@ class Group(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
 
-    def __init__(self,
-                 name):
-        self.name = name
+
+class Student(Base):
+    __tablename__ = 'student'
+    id = Column(Integer, primary_key=True)
+    firstname = Column(String)
+    lastname = Column(String)
+    group_id = Column(
+        Integer,
+        ForeignKey('group.id'),
+        nullable=False,
+    )
+
+    group = relationship(
+        'Group',
+        foreign_keys='Student.group_id',
+        backref='students',
+    )
 
 
 Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
