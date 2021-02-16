@@ -1,3 +1,11 @@
+"""
+Создать пакет school.
+Создать файл models.py.
+Создать базу school в postgre.
+Создать таблицу Учебной группы(Group) с помощью
+sqlalchemy в декларативном стиле.
+Группа характеризуется названием(name).
+"""
 from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, \
     database_exists
@@ -22,11 +30,11 @@ Base = declarative_base()
 class Group(Base):
     __tablename__ = 'group'
     id = Column(Integer, primary_key=True)
-    group_name = Column(String)
+    name = Column(String)
 
     def __init__(self,
-                 group_name):
-        self.group_name = group_name
+                 name):
+        self.name = name
 
 
 Base.metadata.create_all(engine)
