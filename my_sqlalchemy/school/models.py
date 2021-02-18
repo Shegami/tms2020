@@ -8,7 +8,7 @@ sqlalchemy в файле models.py.
 Добавить в каждую по три студента.
 """
 from sqlalchemy import create_engine,\
-    Column, String, Integer, ForeignKey, Float
+    Column, String, Integer, ForeignKey, Float, Table
 from sqlalchemy_utils import create_database, \
     database_exists
 from sqlalchemy.ext.declarative import declarative_base
@@ -67,6 +67,27 @@ class Diary(Base):
         'Student',
         foreign_keys='Diary.student_id',
         backref=backref('diary', uselist=False)
+    )
+
+
+association_table = Table(
+    'association',
+    Base.metadata,
+    Column('id', Integer, primary_key=True),
+    Column('book_id', Integer, ForeignKey('book.id')),
+    Column('student_id', Integer, ForeignKey('student.id')),
+)
+
+
+class Book(Base):
+    __tablename__ = 'book'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    pages = Column(Integer)
+    students = relationship(
+        'Student',
+        secondary=association_table,
+        backref='books',
     )
 
 
