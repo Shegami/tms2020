@@ -8,11 +8,12 @@ sqlalchemy в файле models.py.
 Добавить в каждую по три студента.
 """
 from sqlalchemy import create_engine,\
-    Column, String, Integer, ForeignKey
+    Column, String, Integer, ForeignKey, Float
 from sqlalchemy_utils import create_database, \
     database_exists
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy.orm import relationship,\
+    sessionmaker, backref
 
 DB_USER = 'postgres'
 DB_PASS = 'postgres'
@@ -50,6 +51,22 @@ class Student(Base):
         'Group',
         foreign_keys='Student.group_id',
         backref='students',
+    )
+
+
+class Diary(Base):
+    __tablename__ = 'diary'
+    id = Column(Integer, primary_key=True)
+    avg_mark = Column(Float)
+    student_id = Column(
+        Integer,
+        ForeignKey('student.id'),
+        nullable=False,
+    )
+    student = relationship(
+        'Student',
+        foreign_keys='Diary.student_id',
+        backref=backref('diary', uselist=False)
     )
 
 
