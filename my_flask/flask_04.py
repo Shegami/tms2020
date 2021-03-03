@@ -32,8 +32,8 @@ def login():
         ))
 
 
-@app.route('/success/<first_name>-<last_name>-<age>')
-def success(first_name, last_name, age):
+@app.route('/success/<last_name>-<first_name>-<age>')
+def success(last_name, first_name, age):
     with open('log_04.txt', 'a') as my_file:
         my_file.writelines([
             f'First name: {first_name}\n',
