@@ -20,5 +20,5 @@ from app1.views import date_now, two_pow
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', date_now),
-    path('two_pow/<int:number>', two_pow, name='two_pow')
+    path('two_pow/<int:number>', two_pow, name='two-pow')
 ]
