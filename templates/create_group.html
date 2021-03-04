@@ -5,7 +5,7 @@
     <title>Create group</title>
 </head>
 <body>
-    <form method="POST" action="http://127.0.0.1:5000/create_group">
+    <form method="POST" action="{{ url_for('create_group') }}">
         <p>Enter a group name</p>
         <input type="text" name="group_name">
         <input type="submit" value="sent">
