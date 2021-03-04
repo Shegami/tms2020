@@ -47,7 +47,3 @@ def create_group():
         db.session.add(new_group)
         db.session.commit()
         return redirect(url_for('get_groups'))
-
-
-if __name__ == '__main__':
-    app.run()
