@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create group</title>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('create_group') }}">
+        <p>Enter a group name</p>
+        <input type="text" name="group_name">
+        <input type="submit" value="sent">
+    </form>
+</body>
+</html>
