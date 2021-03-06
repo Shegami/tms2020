@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('edit_group', gr_id=gr_id) }}">
+        <p>Enter a new group name</p>
+        <input type="text" name="group_name">
+        <input type="submit" value="sent">
+    </form>
+</body>
+</html>
