@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from datetime import date
 from django.template.loader import get_template
+from app1.forms import UserForm
 
 
 def date_now(request):
@@ -41,14 +42,19 @@ def form(request):
 
 def full_form(request):
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        age = request.POST.get('age')
-        context = {
-            'first_name': first_name,
-            'last_name': last_name,
-            'age': age
-        }
-        return render(request, 'django_06_display.html', context)
+        form = UserForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            age = cd.get('age')
+            first_name = cd.get('first_name')
+            last_name = cd.get('last_name')
+            context = {
+                'first_name': first_name,
+                'last_name': last_name,
+                'age': age
+            }
+            return render(request, 'django_06_display.html', context)
+        errors = form.errors
+        return HttpResponse(f'{errors}')
     else:
         return render(request, 'django_06_form.html')
