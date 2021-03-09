@@ -16,4 +16,4 @@ def my_word(request, word):
     if len(word) % 2 == 0:
         return HttpResponse(f'{word[1::2]}')
     else:
-        redirect('main')
+        return redirect('main')
