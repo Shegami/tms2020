@@ -7,3 +7,4 @@ class UserForm(Form):
         max_value=99
     )
     first_name = CharField(max_length=15)
+    last_name = CharField()

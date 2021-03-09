@@ -57,4 +57,5 @@ def full_form(request):
         errors = form.errors
         return HttpResponse(f'{errors}')
     else:
-        return render(request, 'django_06_form.html')
+        context = {'form': UserForm()}
+        return render(request, 'django_06_form.html', context)

@@ -4,12 +4,7 @@
 
 {% block content %}
     <form method="POST" action="{% url 'full-form' %}">
-        <p>First name</p>
-            <input type="text" name="first_name">
-        <p>Last name</p>
-            <input type="text" name="last_name">
-        <p>Age</p>
-            <input type="text" name="age">
-        <input type="submit" value="sent">
+        {{ form.as_p }}
+        <input type="submit" value="Sent">
     </form>
 {% endblock %}
