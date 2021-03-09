@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} DISPLAY {% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url 'full-form' %}">
+        <p>First name</p>
+            <input type="text" name="first_name">
+        <p>Last name</p>
+            <input type="text" name="last_name">
+        <p>Age</p>
+            <input type="text" name="age">
+        <input type="submit" value="sent">
+    </form>
+{% endblock %}
