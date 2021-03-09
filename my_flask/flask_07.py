@@ -47,3 +47,22 @@ def create_group():
         db.session.add(new_group)
         db.session.commit()
         return redirect(url_for('get_groups'))
+
+
+@app.route('/edit_group/<gr_id>', methods=['POST', 'GET'])
+def edit_group(gr_id):
+    if request.method == 'GET':
+        return render_template('edit_group.html', gr_id=gr_id)
+    else:
+        group = Group.query.get(gr_id)
+        group.name = request.form['group_name']
+        db.session.commit()
+        return redirect(url_for('get_groups'))
+
+
+@app.route('/<gr_id>')
+def delete_group(gr_id):
+    group = Group.query.get(gr_id)
+    db.session.delete(group)
+    db.session.commit()
+    return redirect(url_for('get_groups'))
