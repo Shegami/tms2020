@@ -60,7 +60,7 @@ def edit_group(gr_id):
         return redirect(url_for('get_groups'))
 
 
-@app.route('/<gr_id>')
+@app.route('/<gr_id>', methods=['POST'])
 def delete_group(gr_id):
     group = Group.query.get(gr_id)
     db.session.delete(group)
