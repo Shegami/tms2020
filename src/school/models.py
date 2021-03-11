@@ -36,3 +36,15 @@ class Diary(models.Model):
 
     def __str__(self):
         return f'{self.student} - {self.avg_mark}'
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=20)
+    pages = models.IntegerField()
+    students = models.ManyToManyField(
+        Student,
+        related_name='book',
+    )
+
+    def __str__(self):
+        return f'{self.title}'
