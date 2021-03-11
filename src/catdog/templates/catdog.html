@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} CATDOG {% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'catdog' %}">
+    <a href="cat.html">I love cats!</a>
+    <a href="dog.html">I love dogs!</a>
+</form>
+{% endblock %}
