@@ -23,3 +23,16 @@ class Student(models.Model):
                f'{self.first_name} '\
                f'{self.last_name} '\
                f'{self.group.name}'
+
+
+class Diary(models.Model):
+    avg_mark = models.FloatField(max_length=10)
+    student = models.OneToOneField(
+        Student,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='student',
+    )
+
+    def __str__(self):
+        return f'{self.student} - {self.avg_mark}'
