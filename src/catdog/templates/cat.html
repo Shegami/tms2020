@@ -3,8 +3,9 @@
 {% block title %} CAT {% endblock %}
 
 {% block content %}
-    <img src={{link}}>
+    <img src={{url}}>
     <form method="post" action="{% url 'cat' %}">
-        <button type="submit">Back to main</button>
+        <button type="submit" name="button" value="home">Home</button>
+        <button type="submit" name="button" value="save">Save</button>
     </form>
 {% endblock %}
