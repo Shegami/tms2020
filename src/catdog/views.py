@@ -24,7 +24,7 @@ def cat(request):
     else:
         if request.POST.get('button') == 'save':
             typpe = context['url'].split('.')[-1]
-            save_model(context['url'], typpe).save()
+            save_model(context['url'], typpe, species='cat').save()
         return redirect(catdog)
 
 
@@ -38,14 +38,14 @@ def dog(request):
     else:
         if request.POST.get('button') == 'save':
             typpe = context['url'].split('.')[-1]
-            save_model(context['url'], typpe).save()
+            save_model(context['url'], typpe, species='dog').save()
         return redirect(catdog)
 
 
-def save_model(url, typpe):
+def save_model(url, typpe, species):
     model = AnimalImage(
                 url=url,
-                species='dog',
+                species=species,
                 date=datetime.now(),
                 type=typpe
             )
