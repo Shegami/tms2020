@@ -10,3 +10,11 @@ def api_products(request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
+
+
+@api_view(['GET'])
+def api_products_detailed(request, pk):
+    if request.method == 'GET':
+        products = Product.objects.get(pk=pk)
+        serializer = ProductSerializer(products)
+        return Response(serializer.data)
