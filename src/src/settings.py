@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'app2',
     'django_extensions',
     'school',
-    'catdog'
+    'catdog',
 ]
 
 MIDDLEWARE = [
