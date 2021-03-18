@@ -1,9 +1,8 @@
 from django.urls import path
-from drf1.views import api_products, api_products_detailed
-
+from drf1.views import APIProducts, APIProductDetailed
 urlpatterns = [
-    path('product/', api_products, name='products'),
+    path('products/', APIProducts.as_view(), name='products'),
     path('product/<int:pk>',
-         api_products_detailed,
-         name='products_det'),
+         APIProductDetailed.as_view(),
+         name='product_det'),
 ]
